@@ -6,7 +6,11 @@
 
 
 var body = $response.body;
-
-body = body.replace('hibit', 'out')
+var url = $request.url;
+if (url.indexOf('lxRedirect.jsp') !== -1) {
+    body = body.replace('hibit', 'out')
+} else if (url.indexOf('fxRedirect.jsp') !== -1) {
+    body = body.replace('hibit', 'enter')
+}
 
 $done(body);
